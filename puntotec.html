@@ -1,0 +1,1828 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PUNTO TEC - Tu Tienda de Tecnología</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #1e40af;
+            --dark-blue: #1e3a8a;
+            --black: #000000;
+            --gray-dark: #374151;
+            --gray-light: #f3f4f6;
+            --white: #ffffff;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--gray-dark);
+            background-color: var(--gray-light);
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--black) 100%);
+            color: var(--white);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-placeholder {
+            width: 50px;
+            height: 50px;
+            background: var(--white);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--primary-blue);
+        }
+
+        .store-name {
+            font-size: 2rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        /* Navigation */
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* Cart */
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            padding: 0.5rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        .cart-icon:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--danger);
+            color: var(--white);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        /* Search Bar */
+        .search-container {
+            margin: 2rem auto;
+            max-width: 600px;
+            padding: 0 2rem;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--primary-blue);
+            border-radius: 50px;
+            font-size: 1rem;
+            outline: none;
+            transition: box-shadow 0.3s;
+        }
+
+        .search-bar:focus {
+            box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.2);
+        }
+
+        /* Categories */
+        .categories {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .category-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .category-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Products Grid */
+        .products {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--gray-dark);
+        }
+
+        .filter-bar {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: 2px solid var(--primary-blue);
+            background: var(--white);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: var(--gray-light);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--gray-dark);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .product-status {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .in-stock {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .out-stock {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .coming-soon {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--primary-blue);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .add-to-cart:hover {
+            background: var(--dark-blue);
+        }
+
+        .add-to-cart:disabled {
+            background: var(--gray-light);
+            color: var(--gray-dark);
+            cursor: not-allowed;
+        }
+
+        /* Cart Modal */
+        .cart-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 2000;
+            padding: 2rem;
+        }
+
+        .cart-content {
+            background: var(--white);
+            max-width: 600px;
+            margin: 0 auto;
+            border-radius: 12px;
+            padding: 2rem;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .close-cart {
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--gray-dark);
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .cart-item-image {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            background: var(--gray-light);
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .cart-item-price {
+            color: var(--primary-blue);
+            font-weight: bold;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            border: 1px solid var(--gray-light);
+            background: var(--white);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .quantity-btn:hover {
+            background: var(--gray-light);
+        }
+
+        .cart-total {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--gray-light);
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .total-amount {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--success);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: background 0.3s;
+        }
+
+        .checkout-btn:hover {
+            background: #059669;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--gray-dark);
+            color: var(--white);
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: var(--gray-light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <div class="logo-placeholder">PT</div>
+                <div class="store-name">PUNTO TEC</div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Inicio</a></li>
+                    <li><a href="#products">Productos</a></li>
+                    <li><a href="#about">Nosotros</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                    <li>
+                        <div class="cart-icon" onclick="toggleCart()">
+                            🛒
+                            <span class="cart-count" id="cartCount">0</span>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+        <input type="text" class="search-bar" placeholder="Buscar productos..." id="searchInput">
+    </div>
+
+    <!-- Categories -->
+    <div class="categories">
+        <h2 class="section-title">Categorías</h2>
+        <div class="category-grid">
+            <div class="category-card" onclick="filterProducts('all')">
+                <div class="category-icon">🖥️</div>
+                <div>Todos</div>
+            </div>
+            <div class="category-card" onclick="filterProducts('networking')">
+                <div class="category-icon">🌐</div>
+                <div>Redes</div>
+            </div>
+            <div class="category-card" onclick="filterProducts('cables')">
+                <div class="category-icon">🔌</div>
+                <div>Cables</div>
+            </div>
+            <div class="category-card" onclick="filterProducts('computers')">
+                <div class="category-icon">💻</div>
+                <div>Computadoras</div>
+            </div>
+            <div class="category-card" onclick="filterProducts('accessories')">
+                <div class="category-icon">🖱️</div>
+                <div>Accesorios</div>
+            </div>
+            <div class="category-card" onclick="filterProducts('storage')">
+                <div class="category-icon">💾</div>
+                <div>Almacenamiento</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Products -->
+    <div class="products">
+        <h2 class="section-title">Productos Destacados</h2>
+        <div class="filter-bar">
+            <button class="filter-btn active" onclick="filterProducts('all')">Todos</button>
+            <button class="filter-btn" onclick="filterProducts('networking')">Redes</button>
+            <button class="filter-btn" onclick="filterProducts('cables')">Cables</button>
+            <button class="filter-btn" onclick="filterProducts('computers')">Computadoras</button>
+            <button class="filter-btn" onclick="filterProducts('accessories')">Accesorios</button>
+            <button class="filter-btn" onclick="filterProducts('storage')">Almacenamiento</button>
+        </div>
+        <div class="products-grid" id="productsGrid">
+            <!-- Products will be inserted here by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2>Carrito de Compras</h2>
+                <span class="close-cart" onclick="toggleCart()">&times;</span>
+            </div>
+            <div id="cartItems"></div>
+            <div class="cart-total">
+                <div class="total-row">
+                    <span>Subtotal:</span>
+                    <span id="subtotal">₲ 0</span>
+                </div>
+                <div class="total-row">
+                    <span>IVA (10%):</span>
+                    <span id="tax">₲ 0</span>
+                </div>
+                <div class="total-row">
+                    <strong>Total:</strong>
+                    <strong class="total-amount" id="total">₲ 0</strong>
+                </div>
+                <button class="checkout-btn" onclick="checkout()">Finalizar Compra</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>PUNTO TEC</h3>
+                <p>Tu tienda de confianza para todos tus productos informáticos.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="#products">Productos</a></li>
+                    <li><a href="#about">Sobre Nosotros</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                    <li><a href="#terms">Términos y Condiciones</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>📧 info@puntotec.com.py</li>
+                    <li>📱 +595 21 123 456</li>
+                    <li>📍 Asunción, Paraguay</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Síguenos</h3>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">WhatsApp</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 PUNTO TEC. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Products Database
+        const products = [
+            // Networking Products
+            {
+                id: 1,
+                name: "TP-Link Omada EAP110 Outdoor Access Point",
+                category: "networking",
+                price: 450000,
+                image: "https://via.placeholder.com/300x200/0EA5E9/FFFFFF?text=EAP110+Outdoor",
+                status: "in-stock",
+                description: "Access Point para exteriores, resistente al agua"
+            },
+            {
+                id: 2,
+                name: "TP-Link Archer AX73 Router WiFi 6",
+                category: "networking",
+                price: 890000,
+                image: "https://via.placeholder.com/300x200/0EA5E9/FFFFFF?text=Archer+AX73",
+                status: "in-stock",
+                description: "Router WiFi 6 de alta velocidad"
+            },
+            {
+                id: 3,
+                name: "Ubiquiti UniFi Dream Machine",
+                category: "networking",
+                price: 2450000,
+                image: "https://via.placeholder.com/300x200/0EA5E9/FFFFFF?text=Dream+Machine",
+                status: "in-stock",
+                description: "Sistema UniFi todo en uno"
+            },
+            {
+                id: 4,
+                name: "MikroTik hAP ac³",
+                category: "networking",
+                price: 680000,
+                image: "https://via.placeholder.com/300x200/0EA5E9/FFFFFF?text=MikroTik+hAP",
+                status: "in-stock",
+                description: "Router profesional MikroTik"
+            },
+            {
+                id: 5,
+                name: "TP-Link TL-SG108 Switch 8 Puertos",
+                category: "networking",
+                price: 185000,
+                image: "https://via.placeholder.com/300x200/0EA5E9/FFFFFF?text=Switch+8P",
+                status: "in-stock",
+                description: "Switch Gigabit no administrable"
+            },
+            {
+                id: 6,
+                name: "D-Link DGS-1210-28 Switch Administrable",
+                category: "networking",
+                price: 1250000,
+                image: "https://via.placeholder.com/300x200/0EA5E9/FFFFFF?text=DGS-1210",
+                status: "in-stock",
+                description: "Switch administrable 24+4 puertos"
+            },
+            {
+                id: 7,
+                name: "ASUS RT-AX88U Router Gaming",
+                category: "networking",
+                price: 2100000,
+                image: "https://via.placeholder.com/300x200/0EA5E9/FFFFFF?text=RT-AX88U",
+                status: "coming-soon",
+                description: "Router gaming WiFi 6"
+            },
+            {
+                id: 8,
+                name: "Netgear Orbi RBK752 Mesh System",
+                category: "networking",
+                price: 3200000,
+                image: "https://via.placeholder.com/300x200/0EA5E9/FFFFFF?text=Orbi+Mesh",
+                status: "in-stock",
+                description: "Sistema Mesh WiFi 6"
+            },
+            {
+                id: 9,
+                name: "TP-Link Deco M5 3-Pack",
+                category: "networking",
+                price: 1450000,
+                image: "https://via.placeholder.com/300x200/0EA5E9/FFFFFF?text=Deco+M5",
+                status: "in-stock",
+                description: "Sistema Mesh para toda la casa"
+            },
+            {
+                id: 10,
+                name: "Cisco SG350-28 Switch",
+                category: "networking",
+                price: 2850000,
+                image: "https://via.placeholder.com/300x200/0EA5E9/FFFFFF?text=Cisco+SG350",
+                status: "out-stock",
+                description: "Switch Cisco administrable"
+            },
+
+            // Cables
+            {
+                id: 11,
+                name: "Cable UTP Cat6 305m",
+                category: "cables",
+                price: 580000,
+                image: "https://via.placeholder.com/300x200/10B981/FFFFFF?text=UTP+Cat6",
+                status: "in-stock",
+                description: "Bobina 305 metros Cat6"
+            },
+            {
+                id: 12,
+                name: "Cable HDMI 2.1 4K 3m",
+                category: "cables",
+                price: 85000,
+                image: "https://via.placeholder.com/300x200/10B981/FFFFFF?text=HDMI+2.1",
+                status: "in-stock",
+                description: "Cable HDMI 4K 120Hz"
+            },
+            {
+                id: 13,
+                name: "Cable USB-C a USB-C 100W",
+                category: "cables",
+                price: 125000,
+                image: "https://via.placeholder.com/300x200/10B981/FFFFFF?text=USB-C+100W",
+                status: "in-stock",
+                description: "Cable de carga rápida 100W"
+            },
+            {
+                id: 14,
+                name: "Cable DisplayPort 1.4 2m",
+                category: "cables",
+                price: 145000,
+                image: "https://via.placeholder.com/300x200/10B981/FFFFFF?text=DisplayPort",
+                status: "in-stock",
+                description: "Cable DP 1.4 8K ready"
+            },
+            {
+                id: 15,
+                name: "Cable Patch Cord Cat6 2m Pack x10",
+                category: "cables",
+                price: 180000,
+                image: "https://via.placeholder.com/300x200/10B981/FFFFFF?text=Patch+Cord",
+                status: "in-stock",
+                description: "Pack 10 cables patch cord"
+            },
+            {
+                id: 16,
+                name: "Cable de Fibra Óptica SC-SC 10m",
+                category: "cables",
+                price: 285000,
+                image: "https://via.placeholder.com/300x200/10B981/FFFFFF?text=Fibra+Optica",
+                status: "in-stock",
+                description: "Cable fibra monomodo"
+            },
+            {
+                id: 17,
+                name: "Cable VGA a HDMI con Audio",
+                category: "cables",
+                price: 95000,
+                image: "https://via.placeholder.com/300x200/10B981/FFFFFF?text=VGA+HDMI",
+                status: "in-stock",
+                description: "Conversor VGA a HDMI"
+            },
+            {
+                id: 18,
+                name: "Cable Lightning a USB-C 2m",
+                category: "cables",
+                price: 165000,
+                image: "https://via.placeholder.com/300x200/10B981/FFFFFF?text=Lightning",
+                status: "coming-soon",
+                description: "Cable Apple certificado MFi"
+            },
+            {
+                id: 19,
+                name: "Cable Coaxial RG6 100m",
+                category: "cables",
+                price: 320000,
+                image: "https://via.placeholder.com/300x200/10B981/FFFFFF?text=Coaxial+RG6",
+                status: "in-stock",
+                description: "Cable coaxial para CCTV"
+            },
+            {
+                id: 20,
+                name: "Cable Thunderbolt 4 0.8m",
+                category: "cables",
+                price: 450000,
+                image: "https://via.placeholder.com/300x200/10B981/FFFFFF?text=Thunderbolt+4",
+                status: "out-stock",
+                description: "Cable Thunderbolt 4 40Gbps"
+            },
+
+            // Computers
+            {
+                id: 21,
+                name: "Laptop ASUS VivoBook 15",
+                category: "computers",
+                price: 3850000,
+                image: "https://via.placeholder.com/300x200/8B5CF6/FFFFFF?text=VivoBook+15",
+                status: "in-stock",
+                description: "Intel i5, 8GB RAM, 512GB SSD"
+            },
+            {
+                id: 22,
+                name: "PC Gamer RTX 4060 Ti",
+                category: "computers",
+                price: 8500000,
+                image: "https://via.placeholder.com/300x200/8B5CF6/FFFFFF?text=PC+Gamer",
+                status: "in-stock",
+                description: "AMD Ryzen 7, RTX 4060 Ti, 16GB"
+            },
+            {
+                id: 23,
+                name: "MacBook Air M2 13\"",
+                category: "computers",
+                price: 9800000,
+                image: "https://via.placeholder.com/300x200/8B5CF6/FFFFFF?text=MacBook+Air",
+                status: "coming-soon",
+                description: "Apple M2, 8GB RAM, 256GB"
+            },
+            {
+                id: 24,
+                name: "Dell OptiPlex 3090 Micro",
+                category: "computers",
+                price: 2950000,
+                image: "https://via.placeholder.com/300x200/8B5CF6/FFFFFF?text=OptiPlex",
+                status: "in-stock",
+                description: "PC empresarial compacto"
+            },
+            {
+                id: 25,
+                name: "HP ProBook 450 G9",
+                category: "computers",
+                price: 5200000,
+                image: "https://via.placeholder.com/300x200/8B5CF6/FFFFFF?text=ProBook+450",
+                status: "in-stock",
+                description: "Laptop empresarial i7"
+            },
+            {
+                id: 26,
+                name: "Lenovo ThinkCentre M920q",
+                category: "computers",
+                price: 3450000,
+                image: "https://via.placeholder.com/300x200/8B5CF6/FFFFFF?text=ThinkCentre",
+                status: "in-stock",
+                description: "Mini PC empresarial"
+            },
+            {
+                id: 27,
+                name: "ASUS ROG Strix G15",
+                category: "computers",
+                price: 11200000,
+                image: "https://via.placeholder.com/300x200/8B5CF6/FFFFFF?text=ROG+Strix",
+                status: "out-stock",
+                description: "Laptop gaming RTX 3070"
+            },
+            {
+                id: 28,
+                name: "iMac 24\" M1",
+                category: "computers",
+                price: 12500000,
+                image: "https://via.placeholder.com/300x200/8B5CF6/FFFFFF?text=iMac+24",
+                status: "in-stock",
+                description: "All-in-one Apple M1"
+            },
+            {
+                id: 29,
+                name: "MSI Creator Z16",
+                category: "computers",
+                price: 13800000,
+                image: "https://via.placeholder.com/300x200/8B5CF6/FFFFFF?text=Creator+Z16",
+                status: "coming-soon",
+                description: "Laptop para creadores"
+            },
+            {
+                id: 30,
+                name: "Chromebook Acer Spin 311",
+                category: "computers",
+                price: 2150000,
+                image: "https://via.placeholder.com/300x200/8B5CF6/FFFFFF?text=Chromebook",
+                status: "in-stock",
+                description: "Convertible Chrome OS"
+            },
+
+            // Accessories
+            {
+                id: 31,
+                name: "Mouse Logitech MX Master 3S",
+                category: "accessories",
+                price: 780000,
+                image: "https://via.placeholder.com/300x200/F59E0B/FFFFFF?text=MX+Master+3S",
+                status: "in-stock",
+                description: "Mouse inalámbrico premium"
+            },
+            {
+                id: 32,
+                name: "Teclado Mecánico Keychron K2",
+                category: "accessories",
+                price: 650000,
+                image: "https://via.placeholder.com/300x200/F59E0B/FFFFFF?text=Keychron+K2",
+                status: "in-stock",
+                description: "Teclado mecánico RGB"
+            },
+            {
+                id: 33,
+                name: "Webcam Logitech Brio 4K",
+                category: "accessories",
+                price: 1250000,
+                image: "https://via.placeholder.com/300x200/F59E0B/FFFFFF?text=Brio+4K",
+                status: "in-stock",
+                description: "Webcam 4K profesional"
+            },
+            {
+                id: 34,
+                name: "Monitor LG 27\" 4K",
+                category: "accessories",
+                price: 2450000,
+                image: "https://via.placeholder.com/300x200/F59E0B/FFFFFF?text=LG+27+4K",
+                status: "in-stock",
+                description: "Monitor IPS 4K HDR"
+            },
+            {
+                id: 35,
+                name: "Headset HyperX Cloud Alpha",
+                category: "accessories",
+                price: 580000,
+                image: "https://via.placeholder.com/300x200/F59E0B/FFFFFF?text=Cloud+Alpha",
+                status: "in-stock",
+                description: "Auriculares gaming"
+            },
+            {
+                id: 36,
+                name: "Pad Razer Goliathus Extended",
+                category: "accessories",
+                price: 285000,
+                image: "https://via.placeholder.com/300x200/F59E0B/FFFFFF?text=Razer+Pad",
+                status: "in-stock",
+                description: "Mousepad gaming XXL"
+            },
+            {
+                id: 37,
+                name: "Soporte Monitor Ergotron LX",
+                category: "accessories",
+                price: 1180000,
+                image: "https://via.placeholder.com/300x200/F59E0B/FFFFFF?text=Ergotron+LX",
+                status: "coming-soon",
+                description: "Brazo monitor ajustable"
+            },
+            {
+                id: 38,
+                name: "Hub USB-C 7 en 1",
+                category: "accessories",
+                price: 385000,
+                image: "https://via.placeholder.com/300x200/F59E0B/FFFFFF?text=USB-C+Hub",
+                status: "in-stock",
+                description: "Hub con HDMI, USB, SD"
+            },
+            {
+                id: 39,
+                name: "Lámpara Monitor BenQ ScreenBar",
+                category: "accessories",
+                price: 680000,
+                image: "https://via.placeholder.com/300x200/F59E0B/FFFFFF?text=ScreenBar",
+                status: "out-stock",
+                description: "Lámpara LED para monitor"
+            },
+            {
+                id: 40,
+                name: "Micrófono Blue Yeti",
+                category: "accessories",
+                price: 980000,
+                image: "https://via.placeholder.com/300x200/F59E0B/FFFFFF?text=Blue+Yeti",
+                status: "in-stock",
+                description: "Micrófono USB profesional"
+            },
+
+            // Storage
+            {
+                id: 41,
+                name: "SSD Samsung 980 Pro 1TB",
+                category: "storage",
+                price: 850000,
+                image: "https://via.placeholder.com/300x200/EF4444/FFFFFF?text=980+Pro+1TB",
+                status: "in-stock",
+                description: "NVMe Gen4 7000MB/s"
+            },
+            {
+                id: 42,
+                name: "HDD Seagate IronWolf 8TB",
+                category: "storage",
+                price: 1680000,
+                image: "https://via.placeholder.com/300x200/EF4444/FFFFFF?text=IronWolf+8TB",
+                status: "in-stock",
+                description: "Disco NAS 7200RPM"
+            },
+            {
+                id: 43,
+                name: "SSD Kingston NV2 500GB",
+                category: "storage",
+                price: 285000,
+                image: "https://via.placeholder.com/300x200/EF4444/FFFFFF?text=NV2+500GB",
+                status: "in-stock",
+                description: "NVMe económico"
+            },
+            {
+                id: 44,
+                name: "WD My Cloud EX2 Ultra 4TB",
+                category: "storage",
+                price: 2450000,
+                image: "https://via.placeholder.com/300x200/EF4444/FFFFFF?text=My+Cloud+4TB",
+                status: "coming-soon",
+                description: "NAS personal 2 bahías"
+            },
+            {
+                id: 45,
+                name: "Pendrive SanDisk Ultra 128GB",
+                category: "storage",
+                price: 125000,
+                image: "https://via.placeholder.com/300x200/EF4444/FFFFFF?text=Ultra+128GB",
+                status: "in-stock",
+                description: "USB 3.1 alta velocidad"
+            },
+            {
+                id: 46,
+                name: "SSD Crucial MX500 2TB",
+                category: "storage",
+                price: 1180000,
+                image: "https://via.placeholder.com/300x200/EF4444/FFFFFF?text=MX500+2TB",
+                status: "in-stock",
+                description: "SATA 2.5\" confiable"
+            },
+            {
+                id: 47,
+                name: "MicroSD Samsung EVO 256GB",
+                category: "storage",
+                price: 245000,
+                image: "https://via.placeholder.com/300x200/EF4444/FFFFFF?text=EVO+256GB",
+                status: "in-stock",
+                description: "Clase 10 U3 A2"
+            },
+            {
+                id: 48,
+                name: "HDD WD Purple 6TB",
+                category: "storage",
+                price: 1280000,
+                image: "https://via.placeholder.com/300x200/EF4444/FFFFFF?text=Purple+6TB",
+                status: "out-stock",
+                description: "Disco para videovigilancia"
+            },
+            {
+                id: 49,
+                name: "SSD Externo Samsung T7 1TB",
+                category: "storage",
+                price: 780000,
+                image: "https://via.placeholder.com/300x200/EF4444/FFFFFF?text=T7+1TB",
+                status: "in-stock",
+                description: "SSD portátil USB-C"
+            },
+            {
+                id: 50,
+                name: "Synology DS220+ NAS",
+                category: "storage",
+                price: 3850000,
+                image: "https://via.placeholder.com/300x200/EF4444/FFFFFF?text=DS220+",
+                status: "in-stock",
+                description: "NAS 2 bahías sin discos"
+            },
+
+            // More Networking Products
+            {
+                id: 51,
+                name: "UniFi Access Point AC Pro",
+                category: "networking",
+                price: 1180000,
+                image: "https://via.placeholder.com/300x200/0EA5E9/FFFFFF?text=UniFi+AC+Pro",
+                status: "in-stock",
+                description: "AP empresarial PoE"
+            },
+            {
+                id: 52,
+                name: "TP-Link Omada Controller OC200",
+                category: "networking",
+                price: 485000,
+                image: "https://via.placeholder.com/300x200/0EA5E9/FFFFFF?text=OC200",
+                status: "in-stock",
+                description: "Controlador hardware Omada"
+            },
+            {
+                id: 53,
+                name: "MikroTik CRS328-24P-4S+RM",
+                category: "networking",
+                price: 4250000,
+                image: "https://via.placeholder.com/300x200/0EA5E9/FFFFFF?text=CRS328",
+                status: "coming-soon",
+                description: "Switch 24 puertos PoE+"
+            },
+            {
+                id: 54,
+                name: "Aruba Instant On AP22",
+                category: "networking",
+                price: 980000,
+                image: "https://via.placeholder.com/300x200/0EA5E9/FFFFFF?text=Aruba+AP22",
+                status: "in-stock",
+                description: "Access Point WiFi 6"
+            },
+            {
+                id: 55,
+                name: "Fortinet FortiGate 40F",
+                category: "networking",
+                price: 5850000,
+                image: "https://via.placeholder.com/300x200/0EA5E9/FFFFFF?text=FortiGate+40F",
+                status: "out-stock",
+                description: "Firewall UTM empresarial"
+            },
+
+            // More Cables
+            {
+                id: 56,
+                name: "Cable Cat7 SFTP 305m",
+                category: "cables",
+                price: 980000,
+                image: "https://via.placeholder.com/300x200/10B981/FFFFFF?text=Cat7+SFTP",
+                status: "in-stock",
+                description: "Cable blindado Cat7"
+            },
+            {
+                id: 57,
+                name: "Cable HDMI Fibra Óptica 20m",
+                category: "cables",
+                price: 685000,
+                image: "https://via.placeholder.com/300x200/10B981/FFFFFF?text=HDMI+Fibra",
+                status: "in-stock",
+                description: "HDMI activo fibra óptica"
+            },
+            {
+                id: 58,
+                name: "Cable USB 3.0 Extensión 5m",
+                category: "cables",
+                price: 145000,
+                image: "https://via.placeholder.com/300x200/10B981/FFFFFF?text=USB+3.0+5m",
+                status: "in-stock",
+                description: "Cable extensión activo"
+            },
+            {
+                id: 59,
+                name: "Cable DVI-D Dual Link 3m",
+                category: "cables",
+                price: 125000,
+                image: "https://via.placeholder.com/300x200/10B981/FFFFFF?text=DVI-D",
+                status: "coming-soon",
+                description: "Cable DVI digital"
+            },
+            {
+                id: 60,
+                name: "Cable Audio Óptico Toslink 3m",
+                category: "cables",
+                price: 85000,
+                image: "https://via.placeholder.com/300x200/10B981/FFFFFF?text=Toslink",
+                status: "in-stock",
+                description: "Cable audio digital"
+            },
+
+            // More Computers
+            {
+                id: 61,
+                name: "Surface Laptop 5 13.5\"",
+                category: "computers",
+                price: 7850000,
+                image: "https://via.placeholder.com/300x200/8B5CF6/FFFFFF?text=Surface+5",
+                status: "in-stock",
+                description: "Intel i5, 8GB, 256GB"
+            },
+            {
+                id: 62,
+                name: "Dell XPS 15 9520",
+                category: "computers",
+                price: 14500000,
+                image: "https://via.placeholder.com/300x200/8B5CF6/FFFFFF?text=XPS+15",
+                status: "coming-soon",
+                description: "i7-12700H, RTX 3050 Ti"
+            },
+            {
+                id: 63,
+                name: "Mac Mini M2 Pro",
+                category: "computers",
+                price: 8950000,
+                image: "https://via.placeholder.com/300x200/8B5CF6/FFFFFF?text=Mac+Mini+M2",
+                status: "in-stock",
+                description: "M2 Pro, 16GB, 512GB"
+            },
+            {
+                id: 64,
+                name: "HP EliteDesk 800 G9",
+                category: "computers",
+                price: 5450000,
+                image: "https://via.placeholder.com/300x200/8B5CF6/FFFFFF?text=EliteDesk+800",
+                status: "in-stock",
+                description: "Desktop empresarial i7"
+            },
+            {
+                id: 65,
+                name: "Lenovo Legion 5 Pro",
+                category: "computers",
+                price: 9850000,
+                image: "https://via.placeholder.com/300x200/8B5CF6/FFFFFF?text=Legion+5+Pro",
+                status: "out-stock",
+                description: "Gaming RTX 3060"
+            },
+
+            // More Accessories
+            {
+                id: 66,
+                name: "Stream Deck MK.2",
+                category: "accessories",
+                price: 1180000,
+                image: "https://via.placeholder.com/300x200/F59E0B/FFFFFF?text=Stream+Deck",
+                status: "in-stock",
+                description: "15 teclas LCD personalizables"
+            },
+            {
+                id: 67,
+                name: "Wacom Intuos Pro Medium",
+                category: "accessories",
+                price: 2450000,
+                image: "https://via.placeholder.com/300x200/F59E0B/FFFFFF?text=Wacom+Intuos",
+                status: "in-stock",
+                description: "Tableta gráfica profesional"
+            },
+            {
+                id: 68,
+                name: "Cámara Logitech C920",
+                category: "accessories",
+                price: 485000,
+                image: "https://via.placeholder.com/300x200/F59E0B/FFFFFF?text=C920",
+                status: "in-stock",
+                description: "Webcam Full HD"
+            },
+            {
+                id: 69,
+                name: "Teclado Apple Magic Keyboard",
+                category: "accessories",
+                price: 980000,
+                image: "https://via.placeholder.com/300x200/F59E0B/FFFFFF?text=Magic+Keyboard",
+                status: "coming-soon",
+                description: "Teclado inalámbrico Apple"
+            },
+            {
+                id: 70,
+                name: "Monitor ASUS ProArt 32\" 4K",
+                category: "accessories",
+                price: 4850000,
+                image: "https://via.placeholder.com/300x200/F59E0B/FFFFFF?text=ProArt+32",
+                status: "in-stock",
+                description: "Monitor profesional calibrado"
+            },
+
+            // More Storage
+            {
+                id: 71,
+                name: "QNAP TS-453D NAS",
+                category: "storage",
+                price: 4250000,
+                image: "https://via.placeholder.com/300x200/EF4444/FFFFFF?text=QNAP+TS-453D",
+                status: "in-stock",
+                description: "NAS 4 bahías Intel"
+            },
+            {
+                id: 72,
+                name: "SSD WD Black SN850X 2TB",
+                category: "storage",
+                price: 1850000,
+                image: "https://via.placeholder.com/300x200/EF4444/FFFFFF?text=SN850X+2TB",
+                status: "in-stock",
+                description: "NVMe Gen4 gaming"
+            },
+            {
+                id: 73,
+                name: "HDD Toshiba N300 10TB",
+                category: "storage",
+                price: 2180000,
+                image: "https://via.placeholder.com/300x200/EF4444/FFFFFF?text=N300+10TB",
+                status: "coming-soon",
+                description: "Disco NAS alta capacidad"
+            },
+            {
+                id: 74,
+                name: "SSD Corsair MP600 Pro 1TB",
+                category: "storage",
+                price: 980000,
+                image: "https://via.placeholder.com/300x200/EF4444/FFFFFF?text=MP600+Pro",
+                status: "in-stock",
+                description: "NVMe Gen4 con disipador"
+            },
+            {
+                id: 75,
+                name: "Pendrive Kingston DataTraveler 256GB",
+                category: "storage",
+                price: 185000,
+                image: "https://via.placeholder.com/300x200/EF4444/FFFFFF?text=DataTraveler",
+                status: "in-stock",
+                description: "USB 3.2 metal"
+            },
+
+            // Additional Products to reach 100+
+            {
+                id: 76,
+                name: "Router ASUS AX6000",
+                category: "networking",
+                price: 1980000,
+                image: "https://via.placeholder.com/300x200/0EA5E9/FFFFFF?text=AX6000",
+                status: "in-stock",
+                description: "WiFi 6 gaming router"
+            },
+            {
+                id: 77,
+                name: "Cable Mini DisplayPort 2m",
+                category: "cables",
+                price: 125000,
+                image: "https://via.placeholder.com/300x200/10B981/FFFFFF?text=Mini+DP",
+                status: "in-stock",
+                description: "Mini DP a DP"
+            },
+            {
+                id: 78,
+                name: "Laptop Acer Aspire 5",
+                category: "computers",
+                price: 3250000,
+                image: "https://via.placeholder.com/300x200/8B5CF6/FFFFFF?text=Aspire+5",
+                status: "in-stock",
+                description: "Ryzen 5, 8GB, 512GB"
+            },
+            {
+                id: 79,
+                name: "Mouse Pad RGB XXL",
+                category: "accessories",
+                price: 385000,
+                image: "https://via.placeholder.com/300x200/F59E0B/FFFFFF?text=RGB+Pad",
+                status: "in-stock",
+                description: "800x300mm iluminado"
+            },
+            {
+                id: 80,
+                name: "SSD ADATA XPG SX8200 1TB",
+                category: "storage",
+                price: 685000,
+                image: "https://via.placeholder.com/300x200/EF4444/FFFFFF?text=XPG+SX8200",
+                status: "in-stock",
+                description: "NVMe alta velocidad"
+            },
+            {
+                id: 81,
+                name: "Switch TP-Link TL-SG1016D",
+                category: "networking",
+                price: 385000,
+                image: "https://via.placeholder.com/300x200/0EA5E9/FFFFFF?text=TL-SG1016D",
+                status: "in-stock",
+                description: "Switch 16 puertos Gigabit"
+            },
+            {
+                id: 82,
+                name: "Cable Sata III Pack x5",
+                category: "cables",
+                price: 65000,
+                image: "https://via.placeholder.com/300x200/10B981/FFFFFF?text=SATA+III",
+                status: "in-stock",
+                description: "Cables SATA 6Gb/s"
+            },
+            {
+                id: 83,
+                name: "All-in-One HP 24\"",
+                category: "computers",
+                price: 4850000,
+                image: "https://via.placeholder.com/300x200/8B5CF6/FFFFFF?text=HP+AIO+24",
+                status: "coming-soon",
+                description: "i5, 8GB, 256GB SSD"
+            },
+            {
+                id: 84,
+                name: "Silla Gamer DXRacer",
+                category: "accessories",
+                price: 2450000,
+                image: "https://via.placeholder.com/300x200/F59E0B/FFFFFF?text=DXRacer",
+                status: "in-stock",
+                description: "Silla ergonómica gaming"
+            },
+            {
+                id: 85,
+                name: "HDD Externo WD Elements 4TB",
+                category: "storage",
+                price: 785000,
+                image: "https://via.placeholder.com/300x200/EF4444/FFFFFF?text=Elements+4TB",
+                status: "in-stock",
+                description: "Disco externo USB 3.0"
+            },
+            {
+                id: 86,
+                name: "Powerline TP-Link AV1000",
+                category: "networking",
+                price: 485000,
+                image: "https://via.placeholder.com/300x200/0EA5E9/FFFFFF?text=Powerline",
+                status: "in-stock",
+                description: "Kit adaptadores red eléctrica"
+            },
+            {
+                id: 87,
+                name: "Cable RJ45 Cat5e 100m",
+                category: "cables",
+                price: 285000,
+                image: "https://via.placeholder.com/300x200/10B981/FFFFFF?text=Cat5e+100m",
+                status: "in-stock",
+                description: "Bobina cable red"
+            },
+            {
+                id: 88,
+                name: "Mini PC Intel NUC",
+                category: "computers",
+                price: 3850000,
+                image: "https://via.placeholder.com/300x200/8B5CF6/FFFFFF?text=Intel+NUC",
+                status: "out-stock",
+                description: "i5, 16GB, 512GB"
+            },
+            {
+                id: 89,
+                name: "Cooler CPU Noctua NH-D15",
+                category: "accessories",
+                price: 685000,
+                image: "https://via.placeholder.com/300x200/F59E0B/FFFFFF?text=Noctua",
+                status: "in-stock",
+                description: "Disipador CPU premium"
+            },
+            {
+                id: 90,
+                name: "MicroSD SanDisk Extreme 512GB",
+                category: "storage",
+                price: 485000,
+                image: "https://via.placeholder.com/300x200/EF4444/FFFFFF?text=Extreme+512GB",
+                status: "in-stock",
+                description: "A2 V30 U3"
+            },
+            {
+                id: 91,
+                name: "Modem Router VDSL TP-Link",
+                category: "networking",
+                price: 585000,
+                image: "https://via.placeholder.com/300x200/0EA5E9/FFFFFF?text=VDSL+Router",
+                status: "in-stock",
+                description: "Modem VDSL2 + Router"
+            },
+            {
+                id: 92,
+                name: "Cable de Red Crossover 3m",
+                category: "cables",
+                price: 45000,
+                image: "https://via.placeholder.com/300x200/10B981/FFFFFF?text=Crossover",
+                status: "in-stock",
+                description: "Cable cruzado Cat6"
+            },
+            {
+                id: 93,
+                name: "Workstation Dell Precision",
+                category: "computers",
+                price: 18500000,
+                image: "https://via.placeholder.com/300x200/8B5CF6/FFFFFF?text=Precision",
+                status: "coming-soon",
+                description: "Xeon, 32GB, Quadro"
+            },
+            {
+                id: 94,
+                name: "UPS APC 1500VA",
+                category: "accessories",
+                price: 1850000,
+                image: "https://via.placeholder.com/300x200/F59E0B/FFFFFF?text=APC+1500VA",
+                status: "in-stock",
+                description: "UPS con AVR"
+            },
+            {
+                id: 95,
+                name: "SSD Intel 670p 2TB",
+                category: "storage",
+                price: 1285000,
+                image: "https://via.placeholder.com/300x200/EF4444/FFFFFF?text=Intel+670p",
+                status: "in-stock",
+                description: "NVMe QLC value"
+            },
+            {
+                id: 96,
+                name: "Access Point Outdoor Ubiquiti",
+                category: "networking",
+                price: 1850000,
+                image: "https://via.placeholder.com/300x200/0EA5E9/FFFFFF?text=UAP+Outdoor",
+                status: "in-stock",
+                description: "UniFi Mesh exterior"
+            },
+            {
+                id: 97,
+                name: "Cable Adaptador USB-C Hub",
+                category: "cables",
+                price: 285000,
+                image: "https://via.placeholder.com/300x200/10B981/FFFFFF?text=USB-C+Adapter",
+                status: "in-stock",
+                description: "Hub 4 puertos USB-A"
+            },
+            {
+                id: 98,
+                name: "Tablet Samsung Galaxy Tab S8",
+                category: "computers",
+                price: 4850000,
+                image: "https://via.placeholder.com/300x200/8B5CF6/FFFFFF?text=Tab+S8",
+                status: "in-stock",
+                description: "11\", 128GB, S Pen"
+            },
+            {
+                id: 99,
+                name: "Ventilador RGB 120mm Pack x3",
+                category: "accessories",
+                price: 285000,
+                image: "https://via.placeholder.com/300x200/F59E0B/FFFFFF?text=RGB+Fans",
+                status: "in-stock",
+                description: "Ventiladores PC RGB"
+            },
+            {
+                id: 100,
+                name: "NAS Asustor AS5304T",
+                category: "storage",
+                price: 3850000,
+                image: "https://via.placeholder.com/300x200/EF4444/FFFFFF?text=Asustor+NAS",
+                status: "coming-soon",
+                description: "NAS 4 bahías 2.5GbE"
+            },
+            {
+                id: 101,
+                name: "Router MikroTik RB5009",
+                category: "networking",
+                price: 1450000,
+                image: "https://via.placeholder.com/300x200/0EA5E9/FFFFFF?text=RB5009",
+                status: "in-stock",
+                description: "Router profesional 2.5G"
+            },
+            {
+                id: 102,
+                name: "Cable Console Cisco USB",
+                category: "cables",
+                price: 125000,
+                image: "https://via.placeholder.com/300x200/10B981/FFFFFF?text=Console+Cable",
+                status: "in-stock",
+                description: "Cable consola USB a RJ45"
+            },
+            {
+                id: 103,
+                name: "Mac Studio M2 Max",
+                category: "computers",
+                price: 19800000,
+                image: "https://via.placeholder.com/300x200/8B5CF6/FFFFFF?text=Mac+Studio",
+                status: "out-stock",
+                description: "M2 Max, 32GB, 1TB"
+            },
+            {
+                id: 104,
+                name: "Dock Thunderbolt 4",
+                category: "accessories",
+                price: 2450000,
+                image: "https://via.placeholder.com/300x200/F59E0B/FFFFFF?text=TB4+Dock",
+                status: "in-stock",
+                description: "Docking station 11 puertos"
+            },
+            {
+                id: 105,
+                name: "SSD Sabrent Rocket 4TB",
+                category: "storage",
+                price: 3850000,
+                image: "https://via.placeholder.com/300x200/EF4444/FFFFFF?text=Rocket+4TB",
+                status: "coming-soon",
+                description: "NVMe Gen4 alta capacidad"
+            }
+        ];
+
+        // Cart functionality
+        let cart = [];
+
+        function updateCartDisplay() {
+            const cartCount = document.getElementById('cartCount');
+            const cartItems = document.getElementById('cartItems');
+            const subtotal = document.getElementById('subtotal');
+            const tax = document.getElementById('tax');
+            const total = document.getElementById('total');
+
+            // Update cart count
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+
+            // Update cart items display
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p style="text-align: center; padding: 2rem;">Tu carrito está vacío</p>';
+            } else {
+                cartItems.innerHTML = cart.map(item => `
+                    <div class="cart-item">
+                        <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+                        <div class="cart-item-info">
+                            <div class="cart-item-title">${item.name}</div>
+                            <div class="cart-item-price">₲ ${item.price.toLocaleString('es-PY')}</div>
+                            <div class="quantity-controls">
+                                <button class="quantity-btn" onclick="updateQuantity(${item.id}, -1)">-</button>
+                                <span>${item.quantity}</span>
+                                <button class="quantity-btn" onclick="updateQuantity(${item.id}, 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            // Calculate totals
+            const subtotalAmount = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const taxAmount = subtotalAmount * 0.1; // 10% IVA
+            const totalAmount = subtotalAmount + taxAmount;
+
+            subtotal.textContent = `₲ ${subtotalAmount.toLocaleString('es-PY')}`;
+            tax.textContent = `₲ ${taxAmount.toLocaleString('es-PY')}`;
+            total.textContent = `₲ ${totalAmount.toLocaleString('es-PY')}`;
+        }
+
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product || product.status === 'out-stock') return;
+
+            const existingItem = cart.find(item => item.id === productId);
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({
+                    ...product,
+                    quantity: 1
+                });
+            }
+
+            updateCartDisplay();
+            showNotification('Producto agregado al carrito');
+        }
+
+        function updateQuantity(productId, change) {
+            const item = cart.find(item => item.id === productId);
+            if (!item) return;
+
+            item.quantity += change;
+            if (item.quantity <= 0) {
+                cart = cart.filter(item => item.id !== productId);
+            }
+
+            updateCartDisplay();
+        }
+
+        function toggleCart() {
+            const modal = document.getElementById('cartModal');
+            modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert('Tu carrito está vacío');
+                return;
+            }
+
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const totalAmount = cart.reduce((sum, item) => sum + (item.price * item.quantity * 1.1), 0);
+
+            alert(`¡Gracias por tu compra!\n\nTotal de productos: ${totalItems}\nTotal a pagar: ₲ ${totalAmount.toLocaleString('es-PY')}\n\nTe contactaremos pronto para coordinar el pago y envío.`);
+            
+            cart = [];
+            updateCartDisplay();
+            toggleCart();
+        }
+
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background: var(--success);
+                color: white;
+                padding: 1rem 2rem;
+                border-radius: 8px;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                z-index: 3000;
+                animation: slideIn 0.3s ease-out;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease-out';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // Display products
+        function displayProducts(productsToShow = products) {
+            const grid = document.getElementById('productsGrid');
+            grid.innerHTML = productsToShow.map(product => `
+                <div class="product-card" onclick="viewProduct(${product.id})">
+                    <img src="${product.image}" alt="${product.name}" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">${product.name}</h3>
+                        <div class="product-price">₲ ${product.price.toLocaleString('es-PY')}</div>
+                        <span class="product-status ${
+                            product.status === 'in-stock' ? 'in-stock' : 
+                            product.status === 'out-stock' ? 'out-stock' : 
+                            'coming-soon'
+                        }">
+                            ${
+                                product.status === 'in-stock' ? 'En Stock' : 
+                                product.status === 'out-stock' ? 'Agotado' : 
+                                'Próximamente'
+                            }
+                        </span>
+                        <button class="add-to-cart" 
+                            onclick="event.stopPropagation(); addToCart(${product.id})"
+                            ${product.status !== 'in-stock' ? 'disabled' : ''}>
+                            ${product.status === 'in-stock' ? 'Agregar al Carrito' : 'No Disponible'}
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function viewProduct(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            alert(`${product.name}\n\nPrecio: ₲ ${product.price.toLocaleString('es-PY')}\n${product.description}\n\nEstado: ${
+                product.status === 'in-stock' ? 'En Stock' : 
+                product.status === 'out-stock' ? 'Agotado' : 
+                'Próximamente'
+            }`);
+        }
+
+        // Filter products
+        function filterProducts(category) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target?.classList.add('active');
+
+            if (category === 'all') {
+                displayProducts();
+            } else {
+                const filtered = products.filter(p => p.category === category);
+                displayProducts(filtered);
+            }
+        }
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            const filtered = products.filter(p => 
+                p.name.toLowerCase().includes(searchTerm) ||
+                p.description.toLowerCase().includes(searchTerm)
+            );
+            displayProducts(filtered);
+        });
+
+        // Close cart when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('cartModal');
+            if (event.target === modal) {
+                toggleCart();
+            }
+        }
+
+        // Add CSS animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            @keyframes slideOut {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Initialize the page
+        displayProducts();
+        updateCartDisplay();
+    </script>
+</body>
+</html>
