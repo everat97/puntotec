@@ -1,4 +1,509 @@
-<!DOCTYPE html>
+// More Networking Products
+            {
+                id: 51,
+                name: "UniFi Access Point AC Pro",
+                category: "networking",
+                price: 1180000,
+                image: "https://images.unsplash.com/photo-1562113481-16ca72c31f88?w=300&h=200&fit=crop",
+                status: "in-stock",
+                description: "AP empresarial PoE"
+            },
+            {
+                id: 52,
+                name: "TP-Link Omada Controller OC200",
+                category: "networking",
+                price: 485000,
+                image: "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=300&h=200&fit=crop",
+                status: "in-stock",
+                description: "Controlador hardware Omada"
+            },
+            {
+                id: 53,
+                name: "MikroTik CRS328-24P-4S+RM",
+                category: "networking",
+                price: 4250000,
+                image: "https://images.unsplash.com/photo-1572981779307-38b8cabb2407?w=300&h=200&fit=crop",
+                status: "coming-soon",
+                description: "Switch 24 puertos PoE+"
+            },
+            {
+                id: 54,
+                name: "Aruba Instant On AP22",
+                category: "networking",
+                price: 980000,
+                image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=300&h=200&fit=crop",
+                status: "in-stock",
+                description: "Access Point WiFi 6"
+            },
+            {
+                id: 55,
+                name: "Fortinet FortiGate 40F",
+                category: "networking",
+                price: 5850000,
+                image: "https://images.unsplash.com/photo-1584776296944-ab6fb57b08f3?w=300&h=200&fit=crop",
+                status: "out-stock",
+                description: "Firewall UTM empresarial"
+            },
+
+            // More Cables
+            {
+                id: 56,
+                name: "Cable Cat7 SFTP 305m",
+                category: "cables",
+                price: 980000,
+                image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=300&h=200&fit=crop",
+                status: "in-stock",
+                description: "Cable blindado Cat7"
+            },
+            {
+                id: 57,
+                name: "Cable HDMI Fibra Óptica 20m",
+                category: "cables",
+                price: 685000,
+                image: "https://images.unsplash.com/photo-1589580361037-b6a46212e524?w=300&h=200&fit=crop",
+                status: "in-stock",
+                description: "HDMI activo fibra óptica"
+            },
+            {
+                id: 58,
+                name: "Cable USB 3.0 Extensión 5m",
+                category: "cables",
+                price: 145000,
+                image: "https://images.unsplash.com/photo-1609207807107-e0ec2120f9de?w=300&h=200&fit=crop",
+                status: "in-stock",
+                description: "Cable extensión activo"
+            },
+            {
+                id: 59,
+                name: "Cable DVI-D Dual Link 3m",
+                category: "cables",
+                price: 125000,
+                image: "https://images.unsplash.com/photo-1589566288421-f079c3f74e1e?w=300&h=200&fit=crop",
+                status: "coming-soon",
+                description: "Cable DVI digital"
+            },
+            {
+                id: 60,
+                name: "Cable Audio Óptico Toslink 3m",
+                category: "cables",
+                price: 85000,
+                image: "https://images.unsplash.com/photo-1571897078067-8c81aa76b1d3?w=300&h=200&fit=crop",
+                status: "in-stock",
+                description: "Cable audio digital"
+            },
+
+            // More Computers
+            {
+                id: 61,
+                name: "Surface Laptop 5 13.5\"",
+                category: "computers",
+                price: 7850000,
+                image: "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=300&h=200&fit=crop",
+                status: "in-stock",
+                description: "Intel i5, 8GB, 256GB"
+            },
+            {
+                id: 62,
+                name: "Dell XPS 15 9520",
+                category: "computers",
+                price: 14500000,
+                image: "https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?w=300&h=200&fit=crop",
+                status: "coming-soon",
+                description: "i7-12700H, RTX 3050 Ti"
+            },
+            {
+                id: 63,
+                name: "Mac Mini M2 Pro",
+                category: "computers",
+                price: 8950000,
+                image: "https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?w=300&h=200&fit=crop",
+                status: "in-stock",
+                description: "M2 Pro, 16GB, 512GB"
+            },
+            {
+                id: 64,
+                name: "HP EliteDesk 800 G9",
+                category: "computers",
+                price: 5450000,
+                image: "https://images.unsplash.com/photo-1587202372583-49330a15584d?w=300&h=200&fit=crop",
+                status: "in-stock",
+                description: "Desktop empresarial i7"
+            },
+            {
+                id: 65,
+                name: "Lenovo Legion 5 Pro",
+                category: "computers",
+                price: 9850000,
+                image: "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=300&h=200&fit=crop",
+                status: "out-stock",
+                description: "Gaming RTX 3060"
+            },
+
+            // More Accessories
+            {
+                id: 66,
+                name: "Stream Deck MK.2",
+                category: "accessories",
+                price: 1180000,
+                image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=300&h=200&fit=crop",
+                status: "in-stock",
+                description: "15 teclas LCD personalizables"
+            },
+            {
+                id: 67,
+                name: "Wacom Intuos Pro Medium",
+                category: "accessories",
+                price: 2450000,
+                image: "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=300&h=200&fit=crop",
+                status: "in-stock",
+                description: "Tableta gráfica profesional"
+            },
+            {
+                id: 68,
+                name: "Cámara Logitech C920",
+                category: "accessories",
+                price: 485000,
+                image: "https://images.unsplash.com/photo-1618274158638-2c50cf4c8b20?w=300&h=200&fit=crop",
+                status: "in-stock",
+                description: "Webcam Full HD"
+            },
+            {
+                id: 69,
+                name: "Teclado Apple Magic Keyboard",
+                category: "accessories",
+                price: 980000,
+                image: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=300&h=200&fit=crop",
+                status: "coming-soon",
+                description: "Teclado inalámbrico Apple"
+            },
+            {
+                id: 70,
+                name: "Monitor ASUS ProArt 32\" 4K",
+                category: "accessories",
+                price: 4850000,
+                image: "https://images.unsplash.com/photo-1527443195645-1133f7f28990?w=300&h=200&fit=crop",
+                status: "in-stock",
+                description: "Monitor profesional calibrado"
+            },
+
+            // More Storage
+            {
+                id: 71,
+                name: "QNAP TS-453D NAS",
+                category: "storage",
+                price: 4250000,
+                image: "https://images.unsplash.com/photo-1592160690494-182e655de9b3?w=300&h=200&fit=crop",
+                status: "in-stock",
+                description: "NAS 4 bahías Intel"
+            },
+            {
+                id: 72,
+                name: "SSD WD Black SN850X 2TB",
+                category: "storage",
+                price: 1850000,
+                image: "https://images.unsplash.com/photo-1597673030062-0a0f1a801a31?w=300&h=200&fit=crop",
+                status: "in-stock",
+                description: "NVMe Gen4 gaming"
+            },
+            {
+                id: 73,
+                name: "HDD Toshiba N300 10TB",
+                category: "storage",
+                price: 2180000,
+                image: "https://images.unsplash.com/photo-1531492746076-161ca9bcad58?w=300&h=200&fit=crop",
+                status: "coming-soon",
+                description: "Disco NAS alta capacidad"
+            },
+            {
+                id: 74,
+                name: "SSD Corsair MP600 Pro 1TB",
+                category: "storage",
+                price: 980000,
+                image: "https://images.unsplash.com/photo-1628557044797-f21d0b922566?w=300&h=200&fit=crop",
+                status: "in-stock",
+                description: "NVMe Gen4 con disipador"
+            },
+            {
+                id: 75,
+                name: "Pendrive Kingston DataTraveler 256GB",
+                category: "storage",
+                price: 185000,
+                image: "https://images.unsplash.com/photo-1609358905581-e5381612486e?w=300&h=200&fit=crop",
+                status: "in-stock",
+                description: "USB 3.2 metal"
+            },
+
+            // Additional Products to reach 100+
+            {
+                id: 76,
+                name: "Router ASUS AX6000",
+                category: "networking",
+                price: 1980000,
+                image: "https://images.unsplash.com/photo-1606904825846-647eb07f5be2?w=300&h=200&fit=crop",
+                status: "in-stock",
+                description: "WiFi 6 gaming router"
+            },
+            {
+                id: 77,
+                name: "Cable Mini DisplayPort 2m",
+                category: "cables",
+                price: 125000,
+                image: "https://images.unsplash.com/photo-1589652717406-1c69efaf1ff8?w=300&h=200&fit=crop",
+                status: "in-stock",
+                description: "Mini DP a DP"
+            },
+            {
+                id: 78,
+                name: "Laptop Acer Aspire 5",
+                category: "computers",
+                price: 3250000,
+                image: "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=300&h=200&fit=crop",
+                status: "in-stock",
+                description: "Ryzen 5, 8GB, 512GB"
+            },
+            {
+                id: 79,
+                name: "Mouse Pad RGB XXL",
+                category: "accessories",
+                price: 385000,
+                image: "https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?w=300&h=200&fit=crop",
+                status: "in-stock",
+                description: "800x300mm iluminado"
+            },
+            {
+                id: 80,
+                name: "SSD ADATA XPG SX8200 1TB",
+                category: "storage",
+                price: 685000,
+                image: "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=300&h=200&fit=crop",
+                status: "in-stock",
+                description: "NVMe alta velocidad"
+            },
+            {
+                id: 81,
+                name: "Switch TP-Link TL-SG1016D",
+                category: "networking",
+                price: 385000,
+                image: "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=300&h=200&fit=crop",
+                status: "in-stock",
+                description: "Switch 16 puertos Gigabit"
+            },
+            {
+                id: 82,
+                name: "Cable Sata III Pack x5",
+                category: "cables",
+                price: 65000,
+                image: "https://images.unsplash.com/photo-1504639897022-3e6c7ddfa5ba?w=300&h=200&fit=crop",
+                status: "in-stock",
+                description: "Cables SATA 6Gb/s"
+            },
+            {
+                id: 83,
+                name: "All-in-One HP 24\"",
+                category: "computers",
+                price: 4850000,
+                image: "https://images.unsplash.com/photo-1527443195645-1133f7f28990?w=300&h=200&fit=crop",
+                status: "coming-soon",
+                description: "i5, 8GB, 256GB SSD"
+            },
+            {
+                id: 84,
+                name: "Silla Gamer DXRacer",
+                category: "accessories",
+                price: 2450000,
+                image: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=300&h=200&fit=crop",
+                status: "in-stock",
+                description: "Silla ergonómica gaming"
+            },
+            {
+                id: 85,
+                name: "HDD Externo WD Elements 4TB",
+                category: "storage",
+                price: 785000,
+                image: "https://images.unsplash.com/photo-1531492746076-161ca9bcad58?w=300&h=200&fit=crop",
+                status: "in-stock",
+                description: "Disco externo USB 3.0"
+            },
+            {
+                id: 86,
+                name: "Powerline TP-Link AV1000",
+                category: "networking",
+                price: 485000,
+                image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=200&fit=crop",
+                status: "in-stock",
+                description: "Kit adaptadores red eléctrica"
+            },
+            {
+                id: 87,
+                name: "Cable RJ45 Cat5e 100m",
+                category: "cables",
+                price: 285000,
+                image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=300&h=200&fit=crop",
+                status: "in-stock",
+                description: "Bobina cable red"
+            },
+            {
+                id: 88,
+                name: "Mini PC Intel NUC",
+                category: "computers",
+                price: 3850000,
+                image: "https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?w=300&h=200&fit=crop",
+                status: "out-stock",
+                description: "i5, 16GB, 512GB"
+            },
+            {
+                id: 89,
+                name: "Cooler CPU Noctua NH-D15",
+                category: "accessories",
+                price: 685000,
+                image: "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=300&h=200&fit=crop",
+                status: "in-stock",
+                description: "Disipador CPU premium"
+            },
+            {
+                id: 90,
+                name: "MicroSD SanDisk Extreme 512GB",
+                category: "storage",
+                price: 485000,
+                image: "https://images.unsplash.com/photo-1616512657274-9017d3902796?w=300&h=200&fit=crop",
+                status: "in-stock",
+                description: "A2 V30 U3"
+            },
+            {
+                id: 91,
+                name: "Modem Router VDSL TP-Link",
+                category: "networking",
+                price: 585000,
+                image: "https://images.unsplash.com/photo-1562113481-16ca72c31f88?w=300&h=200&fit=crop",
+                status: "in-stock",
+                description: "Modem VDSL2 + Router"
+            },
+            {
+                id: 92,
+                name: "Cable de Red Crossover 3m",
+                category: "cables",
+                price: 45000,
+                image: "https://images.unsplash.com/photo-1571897078067-8c81aa76b1d3?w=300&h=200&fit=crop",
+                status: "in-stock",
+                description: "Cable cruzado Cat6"
+            },
+            {
+                id: 93,
+                name: "Workstation Dell Precision",
+                category: "computers",
+                price: 18500000,
+                image: "https://images.unsplash.com/photo-1598986646512-9330bcc4c0dc?w=300&h=200&fit=crop",
+                status: "coming-soon",
+                description: "Xeon, 32GB, Quadro"
+            },
+            {
+                id: 94,
+                name: "UPS APC 1500VA",
+                category: "accessories",
+                price: 1850000,
+                image: "https://images.unsplash.com/photo-1565932887479-b18108f07ffd?w=300&h=200&fit=crop",
+                status: "in-stock",
+                description: "UPS con AVR"
+            },
+            {
+                id: 95,
+                name: "SSD Intel 670p 2TB",
+                category: "storage",
+                price: 1285000,
+                image: "https://images.unsplash.com/photo-1628557044797-f21d0b922566?w=300&h=200&fit=crop",
+                status: "in-stock",
+                description: "NVMe QLC value"
+            },
+            {
+                id: 96,
+                name: "Access Point Outdoor Ubiquiti",
+                category: "networking",
+                price: 1850000,
+                image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=300&h=200&fit=crop",
+                status: "in-stock",
+                description: "UniFi Mesh exterior"
+            },
+            {
+                id: 97,
+                name: "Cable Adaptador USB-C Hub",
+                category: "cables",
+                price: 285000,
+                image: "https://images.unsplash.com/photo-1625948515291-69613efd103f?w=300&h=200&fit=crop",
+                status: "in-stock",
+                description: "Hub 4 puertos USB-A"
+            },
+            {
+                id: 98,
+                name: "Tablet Samsung Galaxy Tab S8",
+                category: "computers",
+                price: 4850000,
+                image: "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=300&h=200&fit=crop",
+                status: "in-stock",
+                description: "11\", 128GB, S Pen"
+            },
+            {
+                id: 99,
+                name: "Ventilador RGB 120mm Pack x3",
+                category: "accessories",
+                price: 285000,
+                image: "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=300&h=200&fit=crop",
+                status: "in-stock",
+                description: "Ventiladores PC RGB"
+            },
+            {
+                id: 100,
+                name: "NAS Asustor AS5304T",
+                category: "storage",
+                price: 3850000,
+                image: "https://images.unsplash.com/photo-1601737487795-dab272f52420?w=300&h=200&fit=crop",
+                status: "coming-soon",
+                description: "NAS 4 bahías 2.5GbE"
+            },
+            {
+                id: 101,
+                name: "Router MikroTik RB5009",
+                category: "networking",
+                price: 1450000,
+                image: "https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=300&h=200&fit=crop",
+                status: "in-stock",
+                description: "Router profesional 2.5G"
+            },
+            {
+                id: 102,
+                name: "Cable Console Cisco USB",
+                category: "cables",
+                price: 125000,
+                image: "https://images.unsplash.com/photo-1589652717521-10c0d092dea9?w=300&h=200&fit=crop",
+                status: "in-stock",
+                description: "Cable consola USB a RJ45"
+            },
+            {
+                id: 103,
+                name: "Mac Studio M2 Max",
+                category: "computers",
+                price: 19800000,
+                image: "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=300&h=200&fit=crop",
+                status: "out-stock",
+                description: "M2 Max, 32GB, 1TB"
+            },
+            {
+                id: 104,
+                name: "Dock Thunderbolt 4",
+                category: "accessories",
+                price: 2450000,
+                image: "https://images.unsplash.com/photo-1625948515291-69613efd103f?w=300&h=200&fit=crop",
+                status: "in-stock",
+                description: "Docking station 11 puertos"
+            },
+            {
+                id: 105,
+                name: "SSD Sabrent Rocket 4TB",
+                category: "storage",
+                price: 3850000,
+                image: "https://images.unsplash.com/photo-1597673030062-0a0f1a801a31?w=300&h=200&fit=crop",
+                status: "coming-soon",
+                description: "NVMe Gen4 alta capacidad"
+            }<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -641,7 +1146,7 @@
                 name: "TP-Link Omada EAP110 Outdoor Access Point",
                 category: "networking",
                 price: 450000,
-                image: "https://via.placeholder.com/300x200/0EA5E9/FFFFFF?text=EAP110+Outdoor",
+                image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=200&fit=crop",
                 status: "in-stock",
                 description: "Access Point para exteriores, resistente al agua"
             },
@@ -650,7 +1155,7 @@
                 name: "TP-Link Archer AX73 Router WiFi 6",
                 category: "networking",
                 price: 890000,
-                image: "https://via.placeholder.com/300x200/0EA5E9/FFFFFF?text=Archer+AX73",
+                image: "https://images.unsplash.com/photo-1606904825846-647eb07f5be2?w=300&h=200&fit=crop",
                 status: "in-stock",
                 description: "Router WiFi 6 de alta velocidad"
             },
@@ -659,7 +1164,7 @@
                 name: "Ubiquiti UniFi Dream Machine",
                 category: "networking",
                 price: 2450000,
-                image: "https://via.placeholder.com/300x200/0EA5E9/FFFFFF?text=Dream+Machine",
+                image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=300&h=200&fit=crop",
                 status: "in-stock",
                 description: "Sistema UniFi todo en uno"
             },
@@ -668,7 +1173,7 @@
                 name: "MikroTik hAP ac³",
                 category: "networking",
                 price: 680000,
-                image: "https://via.placeholder.com/300x200/0EA5E9/FFFFFF?text=MikroTik+hAP",
+                image: "https://images.unsplash.com/photo-1562113481-16ca72c31f88?w=300&h=200&fit=crop",
                 status: "in-stock",
                 description: "Router profesional MikroTik"
             },
@@ -677,7 +1182,7 @@
                 name: "TP-Link TL-SG108 Switch 8 Puertos",
                 category: "networking",
                 price: 185000,
-                image: "https://via.placeholder.com/300x200/0EA5E9/FFFFFF?text=Switch+8P",
+                image: "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=300&h=200&fit=crop",
                 status: "in-stock",
                 description: "Switch Gigabit no administrable"
             },
@@ -686,7 +1191,7 @@
                 name: "D-Link DGS-1210-28 Switch Administrable",
                 category: "networking",
                 price: 1250000,
-                image: "https://via.placeholder.com/300x200/0EA5E9/FFFFFF?text=DGS-1210",
+                image: "https://images.unsplash.com/photo-1572981779307-38b8cabb2407?w=300&h=200&fit=crop",
                 status: "in-stock",
                 description: "Switch administrable 24+4 puertos"
             },
@@ -695,7 +1200,7 @@
                 name: "ASUS RT-AX88U Router Gaming",
                 category: "networking",
                 price: 2100000,
-                image: "https://via.placeholder.com/300x200/0EA5E9/FFFFFF?text=RT-AX88U",
+                image: "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=300&h=200&fit=crop",
                 status: "coming-soon",
                 description: "Router gaming WiFi 6"
             },
@@ -704,7 +1209,7 @@
                 name: "Netgear Orbi RBK752 Mesh System",
                 category: "networking",
                 price: 3200000,
-                image: "https://via.placeholder.com/300x200/0EA5E9/FFFFFF?text=Orbi+Mesh",
+                image: "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=300&h=200&fit=crop",
                 status: "in-stock",
                 description: "Sistema Mesh WiFi 6"
             },
@@ -713,7 +1218,7 @@
                 name: "TP-Link Deco M5 3-Pack",
                 category: "networking",
                 price: 1450000,
-                image: "https://via.placeholder.com/300x200/0EA5E9/FFFFFF?text=Deco+M5",
+                image: "https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=300&h=200&fit=crop",
                 status: "in-stock",
                 description: "Sistema Mesh para toda la casa"
             },
@@ -722,7 +1227,7 @@
                 name: "Cisco SG350-28 Switch",
                 category: "networking",
                 price: 2850000,
-                image: "https://via.placeholder.com/300x200/0EA5E9/FFFFFF?text=Cisco+SG350",
+                image: "https://images.unsplash.com/photo-1584776296944-ab6fb57b08f3?w=300&h=200&fit=crop",
                 status: "out-stock",
                 description: "Switch Cisco administrable"
             },
@@ -733,7 +1238,7 @@
                 name: "Cable UTP Cat6 305m",
                 category: "cables",
                 price: 580000,
-                image: "https://via.placeholder.com/300x200/10B981/FFFFFF?text=UTP+Cat6",
+                image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=300&h=200&fit=crop",
                 status: "in-stock",
                 description: "Bobina 305 metros Cat6"
             },
@@ -742,7 +1247,7 @@
                 name: "Cable HDMI 2.1 4K 3m",
                 category: "cables",
                 price: 85000,
-                image: "https://via.placeholder.com/300x200/10B981/FFFFFF?text=HDMI+2.1",
+                image: "https://images.unsplash.com/photo-1589580361037-b6a46212e524?w=300&h=200&fit=crop",
                 status: "in-stock",
                 description: "Cable HDMI 4K 120Hz"
             },
@@ -751,7 +1256,7 @@
                 name: "Cable USB-C a USB-C 100W",
                 category: "cables",
                 price: 125000,
-                image: "https://via.placeholder.com/300x200/10B981/FFFFFF?text=USB-C+100W",
+                image: "https://images.unsplash.com/photo-1609207807107-e0ec2120f9de?w=300&h=200&fit=crop",
                 status: "in-stock",
                 description: "Cable de carga rápida 100W"
             },
@@ -760,7 +1265,7 @@
                 name: "Cable DisplayPort 1.4 2m",
                 category: "cables",
                 price: 145000,
-                image: "https://via.placeholder.com/300x200/10B981/FFFFFF?text=DisplayPort",
+                image: "https://images.unsplash.com/photo-1589566288421-f079c3f74e1e?w=300&h=200&fit=crop",
                 status: "in-stock",
                 description: "Cable DP 1.4 8K ready"
             },
@@ -769,7 +1274,7 @@
                 name: "Cable Patch Cord Cat6 2m Pack x10",
                 category: "cables",
                 price: 180000,
-                image: "https://via.placeholder.com/300x200/10B981/FFFFFF?text=Patch+Cord",
+                image: "https://images.unsplash.com/photo-1571897078067-8c81aa76b1d3?w=300&h=200&fit=crop",
                 status: "in-stock",
                 description: "Pack 10 cables patch cord"
             },
@@ -778,7 +1283,7 @@
                 name: "Cable de Fibra Óptica SC-SC 10m",
                 category: "cables",
                 price: 285000,
-                image: "https://via.placeholder.com/300x200/10B981/FFFFFF?text=Fibra+Optica",
+                image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=300&h=200&fit=crop",
                 status: "in-stock",
                 description: "Cable fibra monomodo"
             },
@@ -787,7 +1292,7 @@
                 name: "Cable VGA a HDMI con Audio",
                 category: "cables",
                 price: 95000,
-                image: "https://via.placeholder.com/300x200/10B981/FFFFFF?text=VGA+HDMI",
+                image: "https://images.unsplash.com/photo-1589580360394-a35d4cb7b3d6?w=300&h=200&fit=crop",
                 status: "in-stock",
                 description: "Conversor VGA a HDMI"
             },
@@ -796,7 +1301,7 @@
                 name: "Cable Lightning a USB-C 2m",
                 category: "cables",
                 price: 165000,
-                image: "https://via.placeholder.com/300x200/10B981/FFFFFF?text=Lightning",
+                image: "https://images.unsplash.com/photo-1589652717521-10c0d092dea9?w=300&h=200&fit=crop",
                 status: "coming-soon",
                 description: "Cable Apple certificado MFi"
             },
@@ -805,7 +1310,7 @@
                 name: "Cable Coaxial RG6 100m",
                 category: "cables",
                 price: 320000,
-                image: "https://via.placeholder.com/300x200/10B981/FFFFFF?text=Coaxial+RG6",
+                image: "https://images.unsplash.com/photo-1504639897022-3e6c7ddfa5ba?w=300&h=200&fit=crop",
                 status: "in-stock",
                 description: "Cable coaxial para CCTV"
             },
@@ -814,7 +1319,7 @@
                 name: "Cable Thunderbolt 4 0.8m",
                 category: "cables",
                 price: 450000,
-                image: "https://via.placeholder.com/300x200/10B981/FFFFFF?text=Thunderbolt+4",
+                image: "https://images.unsplash.com/photo-1589652717406-1c69efaf1ff8?w=300&h=200&fit=crop",
                 status: "out-stock",
                 description: "Cable Thunderbolt 4 40Gbps"
             },
@@ -825,7 +1330,7 @@
                 name: "Laptop ASUS VivoBook 15",
                 category: "computers",
                 price: 3850000,
-                image: "https://via.placeholder.com/300x200/8B5CF6/FFFFFF?text=VivoBook+15",
+                image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=300&h=200&fit=crop",
                 status: "in-stock",
                 description: "Intel i5, 8GB RAM, 512GB SSD"
             },
@@ -834,7 +1339,7 @@
                 name: "PC Gamer RTX 4060 Ti",
                 category: "computers",
                 price: 8500000,
-                image: "https://via.placeholder.com/300x200/8B5CF6/FFFFFF?text=PC+Gamer",
+                image: "https://images.unsplash.com/photo-1587202372634-32705e3bf49c?w=300&h=200&fit=crop",
                 status: "in-stock",
                 description: "AMD Ryzen 7, RTX 4060 Ti, 16GB"
             },
@@ -843,7 +1348,7 @@
                 name: "MacBook Air M2 13\"",
                 category: "computers",
                 price: 9800000,
-                image: "https://via.placeholder.com/300x200/8B5CF6/FFFFFF?text=MacBook+Air",
+                image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=300&h=200&fit=crop",
                 status: "coming-soon",
                 description: "Apple M2, 8GB RAM, 256GB"
             },
@@ -852,7 +1357,7 @@
                 name: "Dell OptiPlex 3090 Micro",
                 category: "computers",
                 price: 2950000,
-                image: "https://via.placeholder.com/300x200/8B5CF6/FFFFFF?text=OptiPlex",
+                image: "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=300&h=200&fit=crop",
                 status: "in-stock",
                 description: "PC empresarial compacto"
             },
@@ -861,7 +1366,7 @@
                 name: "HP ProBook 450 G9",
                 category: "computers",
                 price: 5200000,
-                image: "https://via.placeholder.com/300x200/8B5CF6/FFFFFF?text=ProBook+450",
+                image: "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=300&h=200&fit=crop",
                 status: "in-stock",
                 description: "Laptop empresarial i7"
             },
@@ -870,7 +1375,7 @@
                 name: "Lenovo ThinkCentre M920q",
                 category: "computers",
                 price: 3450000,
-                image: "https://via.placeholder.com/300x200/8B5CF6/FFFFFF?text=ThinkCentre",
+                image: "https://images.unsplash.com/photo-1587202372583-49330a15584d?w=300&h=200&fit=crop",
                 status: "in-stock",
                 description: "Mini PC empresarial"
             },
@@ -879,7 +1384,7 @@
                 name: "ASUS ROG Strix G15",
                 category: "computers",
                 price: 11200000,
-                image: "https://via.placeholder.com/300x200/8B5CF6/FFFFFF?text=ROG+Strix",
+                image: "https://images.unsplash.com/photo-1598986646512-9330bcc4c0dc?w=300&h=200&fit=crop",
                 status: "out-stock",
                 description: "Laptop gaming RTX 3070"
             },
@@ -888,7 +1393,7 @@
                 name: "iMac 24\" M1",
                 category: "computers",
                 price: 12500000,
-                image: "https://via.placeholder.com/300x200/8B5CF6/FFFFFF?text=iMac+24",
+                image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=300&h=200&fit=crop",
                 status: "in-stock",
                 description: "All-in-one Apple M1"
             },
@@ -897,7 +1402,7 @@
                 name: "MSI Creator Z16",
                 category: "computers",
                 price: 13800000,
-                image: "https://via.placeholder.com/300x200/8B5CF6/FFFFFF?text=Creator+Z16",
+                image: "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=300&h=200&fit=crop",
                 status: "coming-soon",
                 description: "Laptop para creadores"
             },
@@ -906,7 +1411,7 @@
                 name: "Chromebook Acer Spin 311",
                 category: "computers",
                 price: 2150000,
-                image: "https://via.placeholder.com/300x200/8B5CF6/FFFFFF?text=Chromebook",
+                image: "https://images.unsplash.com/photo-1544099858-75feeb57f01b?w=300&h=200&fit=crop",
                 status: "in-stock",
                 description: "Convertible Chrome OS"
             },
@@ -917,7 +1422,7 @@
                 name: "Mouse Logitech MX Master 3S",
                 category: "accessories",
                 price: 780000,
-                image: "https://via.placeholder.com/300x200/F59E0B/FFFFFF?text=MX+Master+3S",
+                image: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=300&h=200&fit=crop",
                 status: "in-stock",
                 description: "Mouse inalámbrico premium"
             },
@@ -926,7 +1431,7 @@
                 name: "Teclado Mecánico Keychron K2",
                 category: "accessories",
                 price: 650000,
-                image: "https://via.placeholder.com/300x200/F59E0B/FFFFFF?text=Keychron+K2",
+                image: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=300&h=200&fit=crop",
                 status: "in-stock",
                 description: "Teclado mecánico RGB"
             },
@@ -935,7 +1440,7 @@
                 name: "Webcam Logitech Brio 4K",
                 category: "accessories",
                 price: 1250000,
-                image: "https://via.placeholder.com/300x200/F59E0B/FFFFFF?text=Brio+4K",
+                image: "https://images.unsplash.com/photo-1618274158638-2c50cf4c8b20?w=300&h=200&fit=crop",
                 status: "in-stock",
                 description: "Webcam 4K profesional"
             },
@@ -944,7 +1449,7 @@
                 name: "Monitor LG 27\" 4K",
                 category: "accessories",
                 price: 2450000,
-                image: "https://via.placeholder.com/300x200/F59E0B/FFFFFF?text=LG+27+4K",
+                image: "https://images.unsplash.com/photo-1527443195645-1133f7f28990?w=300&h=200&fit=crop",
                 status: "in-stock",
                 description: "Monitor IPS 4K HDR"
             },
@@ -953,7 +1458,7 @@
                 name: "Headset HyperX Cloud Alpha",
                 category: "accessories",
                 price: 580000,
-                image: "https://via.placeholder.com/300x200/F59E0B/FFFFFF?text=Cloud+Alpha",
+                image: "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=300&h=200&fit=crop",
                 status: "in-stock",
                 description: "Auriculares gaming"
             },
@@ -962,7 +1467,7 @@
                 name: "Pad Razer Goliathus Extended",
                 category: "accessories",
                 price: 285000,
-                image: "https://via.placeholder.com/300x200/F59E0B/FFFFFF?text=Razer+Pad",
+                image: "https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?w=300&h=200&fit=crop",
                 status: "in-stock",
                 description: "Mousepad gaming XXL"
             },
@@ -971,7 +1476,7 @@
                 name: "Soporte Monitor Ergotron LX",
                 category: "accessories",
                 price: 1180000,
-                image: "https://via.placeholder.com/300x200/F59E0B/FFFFFF?text=Ergotron+LX",
+                image: "https://images.unsplash.com/photo-1586210579191-33b45e38fa2c?w=300&h=200&fit=crop",
                 status: "coming-soon",
                 description: "Brazo monitor ajustable"
             },
@@ -980,7 +1485,7 @@
                 name: "Hub USB-C 7 en 1",
                 category: "accessories",
                 price: 385000,
-                image: "https://via.placeholder.com/300x200/F59E0B/FFFFFF?text=USB-C+Hub",
+                image: "https://images.unsplash.com/photo-1625948515291-69613efd103f?w=300&h=200&fit=crop",
                 status: "in-stock",
                 description: "Hub con HDMI, USB, SD"
             },
@@ -989,7 +1494,7 @@
                 name: "Lámpara Monitor BenQ ScreenBar",
                 category: "accessories",
                 price: 680000,
-                image: "https://via.placeholder.com/300x200/F59E0B/FFFFFF?text=ScreenBar",
+                image: "https://images.unsplash.com/photo-1565932887479-b18108f07ffd?w=300&h=200&fit=crop",
                 status: "out-stock",
                 description: "Lámpara LED para monitor"
             },
@@ -998,7 +1503,7 @@
                 name: "Micrófono Blue Yeti",
                 category: "accessories",
                 price: 980000,
-                image: "https://via.placeholder.com/300x200/F59E0B/FFFFFF?text=Blue+Yeti",
+                image: "https://images.unsplash.com/photo-1590765759804-be35a12c47e5?w=300&h=200&fit=crop",
                 status: "in-stock",
                 description: "Micrófono USB profesional"
             },
@@ -1009,7 +1514,7 @@
                 name: "SSD Samsung 980 Pro 1TB",
                 category: "storage",
                 price: 850000,
-                image: "https://via.placeholder.com/300x200/EF4444/FFFFFF?text=980+Pro+1TB",
+                image: "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=300&h=200&fit=crop",
                 status: "in-stock",
                 description: "NVMe Gen4 7000MB/s"
             },
@@ -1018,7 +1523,7 @@
                 name: "HDD Seagate IronWolf 8TB",
                 category: "storage",
                 price: 1680000,
-                image: "https://via.placeholder.com/300x200/EF4444/FFFFFF?text=IronWolf+8TB",
+                image: "https://images.unsplash.com/photo-1531492746076-161ca9bcad58?w=300&h=200&fit=crop",
                 status: "in-stock",
                 description: "Disco NAS 7200RPM"
             },
@@ -1027,7 +1532,7 @@
                 name: "SSD Kingston NV2 500GB",
                 category: "storage",
                 price: 285000,
-                image: "https://via.placeholder.com/300x200/EF4444/FFFFFF?text=NV2+500GB",
+                image: "https://images.unsplash.com/photo-1597673030062-0a0f1a801a31?w=300&h=200&fit=crop",
                 status: "in-stock",
                 description: "NVMe económico"
             },
@@ -1036,7 +1541,7 @@
                 name: "WD My Cloud EX2 Ultra 4TB",
                 category: "storage",
                 price: 2450000,
-                image: "https://via.placeholder.com/300x200/EF4444/FFFFFF?text=My+Cloud+4TB",
+                image: "https://images.unsplash.com/photo-1601737487795-dab272f52420?w=300&h=200&fit=crop",
                 status: "coming-soon",
                 description: "NAS personal 2 bahías"
             },
@@ -1045,7 +1550,7 @@
                 name: "Pendrive SanDisk Ultra 128GB",
                 category: "storage",
                 price: 125000,
-                image: "https://via.placeholder.com/300x200/EF4444/FFFFFF?text=Ultra+128GB",
+                image: "https://images.unsplash.com/photo-1609358905581-e5381612486e?w=300&h=200&fit=crop",
                 status: "in-stock",
                 description: "USB 3.1 alta velocidad"
             },
@@ -1054,7 +1559,7 @@
                 name: "SSD Crucial MX500 2TB",
                 category: "storage",
                 price: 1180000,
-                image: "https://via.placeholder.com/300x200/EF4444/FFFFFF?text=MX500+2TB",
+                image: "https://images.unsplash.com/photo-1628557044797-f21d0b922566?w=300&h=200&fit=crop",
                 status: "in-stock",
                 description: "SATA 2.5\" confiable"
             },
@@ -1063,7 +1568,7 @@
                 name: "MicroSD Samsung EVO 256GB",
                 category: "storage",
                 price: 245000,
-                image: "https://via.placeholder.com/300x200/EF4444/FFFFFF?text=EVO+256GB",
+                image: "https://images.unsplash.com/photo-1616512657274-9017d3902796?w=300&h=200&fit=crop",
                 status: "in-stock",
                 description: "Clase 10 U3 A2"
             },
@@ -1072,7 +1577,7 @@
                 name: "HDD WD Purple 6TB",
                 category: "storage",
                 price: 1280000,
-                image: "https://via.placeholder.com/300x200/EF4444/FFFFFF?text=Purple+6TB",
+                image: "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=300&h=200&fit=crop",
                 status: "out-stock",
                 description: "Disco para videovigilancia"
             },
@@ -1081,7 +1586,7 @@
                 name: "SSD Externo Samsung T7 1TB",
                 category: "storage",
                 price: 780000,
-                image: "https://via.placeholder.com/300x200/EF4444/FFFFFF?text=T7+1TB",
+                image: "https://images.unsplash.com/photo-1627133805103-ce2d34ccdd37?w=300&h=200&fit=crop",
                 status: "in-stock",
                 description: "SSD portátil USB-C"
             },
@@ -1090,7 +1595,7 @@
                 name: "Synology DS220+ NAS",
                 category: "storage",
                 price: 3850000,
-                image: "https://via.placeholder.com/300x200/EF4444/FFFFFF?text=DS220+",
+                image: "https://images.unsplash.com/photo-1592160690494-182e655de9b3?w=300&h=200&fit=crop",
                 status: "in-stock",
                 description: "NAS 2 bahías sin discos"
             },
